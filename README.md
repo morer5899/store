@@ -1,16 +1,86 @@
-# React + Vite
+`$$$ Prerequisites $$$`
+Before setting up the project, ensure you have the following installed on your system:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Node.js (v14 or higher)
 
-Currently, two official plugins are available:
+MySQL (v8 recommended)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm or yarn package manager
 
-## React Compiler
+Git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`$$$ Step-by-Step SERVER Setup Guide $$$`
 
-## Expanding the ESLint configuration
+1. `Clone the Repository bash`
+git clone <your-repository-url>
+cd <project-folder-name>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. `Install Dependencies bash`
+cd server/npm install
+cd client/npm install
+
+# or
+cd server/npm install
+cd client/npm install
+This will install all required packages including:
+
+
+3. `Database Setup`
+
+# A. `Configure Database Connection`
+Navigate to server/src/config/config.json
+
+Update the development configuration:
+
+json
+{
+  "development": {
+    "username": "root",
+    "password": "your_mysql_password",
+    "database": "your_database_name",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+
+# B. `Create Database`
+Open terminal  and create a new database:
+
+/server/src/ npx sequelize db:create
+
+
+4. `Environment Variables`
+Create a server/.env file in the root directory:
+.env
+PORT=8000
+JWT_SECRET=your_super_secret_jwt_key_change_this
+
+
+5. `Run Database Migrations`
+Create the database tables:
+
+
+/server/src/npx sequelize-cli db:migrate
+This will create the following tables:
+
+users - User accounts and authentication
+
+stores - Store information
+
+ratings - User ratings for stores
+
+6. Start the Server
+Development Mode (with auto-reload):
+
+/server/npm run dev
+
+
+`$$$ Step-by-Step CLIENT Setup Guide $$$`
+
+1. `Install Dependencies bash`
+cd client/npm install
+
+4. `Environment Variables`
+Create a client/.env file in the root directory:
+.env
+VITE_API_URL=http://localhost:8000/api/v1
