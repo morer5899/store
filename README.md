@@ -13,21 +13,27 @@ Git
 
 # 1. `Clone the Repository bash`
 git clone https://github.com/morer5899/store.git
+
 cd store
 
 # 2. `Install Dependencies bash`
+
 cd server/npm install
+
 cd client/npm install
 
 # or
 cd server/npm install
+
 cd client/npm install
+
 This will install all required packages including:
 
 
 # 3. `Database Setup`
 
 1. `Configure Database Connection`
+   
 Navigate to server/src/config/config.json
 
 Update the development configuration:
@@ -45,14 +51,19 @@ json
 
 2. `Create Database`
 Open terminal  and create a new database:
+
 /server/npm install --save-dev sequelize-cli
+
 /server/src/ npx sequelize db:create
 
 
 # 4. `Environment Variables`
 Create a server/.env file in the root directory:
+
 .env
+
 PORT=8000
+
 JWT_SECRET=your_super_secret_jwt_key_change_this
 
 
@@ -61,6 +72,7 @@ Create the database tables:
 
 
 /server/src/npx sequelize-cli db:migrate
+
 This will create the following tables:
 
 users - User accounts and authentication
@@ -82,7 +94,9 @@ cd client/npm install
 
 # 2. `Environment Variables`
 Create a client/.env file in the root directory:
+
 .env
+
 VITE_API_URL=http://localhost:8000/api/v1
 
 # 3. `Start the Development Server`
