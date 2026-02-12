@@ -12,8 +12,8 @@ Git
 # `$$$ Step-by-Step SERVER Setup Guide $$$`
 
 # 1. `Clone the Repository bash`
-git clone <your-repository-url>
-cd <project-folder-name>
+git clone https://github.com/morer5899/store.git
+cd store
 
 # 2. `Install Dependencies bash`
 cd server/npm install
