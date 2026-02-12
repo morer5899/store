@@ -1,4 +1,4 @@
-`$$$ Prerequisites $$$`
+# `$$$ Prerequisites $$$`
 Before setting up the project, ensure you have the following installed on your system:
 
 Node.js (v14 or higher)
@@ -9,13 +9,13 @@ npm or yarn package manager
 
 Git
 
-`$$$ Step-by-Step SERVER Setup Guide $$$`
+# `$$$ Step-by-Step SERVER Setup Guide $$$`
 
-1. `Clone the Repository bash`
+# 1. `Clone the Repository bash`
 git clone <your-repository-url>
 cd <project-folder-name>
 
-2. `Install Dependencies bash`
+# 2. `Install Dependencies bash`
 cd server/npm install
 cd client/npm install
 
@@ -25,9 +25,9 @@ cd client/npm install
 This will install all required packages including:
 
 
-3. `Database Setup`
+# 3. `Database Setup`
 
-# A. `Configure Database Connection`
+1. `Configure Database Connection`
 Navigate to server/src/config/config.json
 
 Update the development configuration:
@@ -43,20 +43,20 @@ json
   }
 }
 
-# B. `Create Database`
+2. `Create Database`
 Open terminal  and create a new database:
-
+/server/npm install --save-dev sequelize-cli
 /server/src/ npx sequelize db:create
 
 
-4. `Environment Variables`
+# 4. `Environment Variables`
 Create a server/.env file in the root directory:
 .env
 PORT=8000
 JWT_SECRET=your_super_secret_jwt_key_change_this
 
 
-5. `Run Database Migrations`
+# 5. `Run Database Migrations`
 Create the database tables:
 
 
@@ -69,18 +69,24 @@ stores - Store information
 
 ratings - User ratings for stores
 
-6. Start the Server
+# 6. Start the Server
 Development Mode (with auto-reload):
 
 /server/npm run dev
 
 
-`$$$ Step-by-Step CLIENT Setup Guide $$$`
+# `$$$ Step-by-Step CLIENT Setup Guide $$$`
 
-1. `Install Dependencies bash`
+# 1. `Install Dependencies bash`
 cd client/npm install
 
-4. `Environment Variables`
+# 2. `Environment Variables`
 Create a client/.env file in the root directory:
 .env
 VITE_API_URL=http://localhost:8000/api/v1
+
+# 3. `Start the Development Server`
+
+/client/npm run dev
+# or
+/client/yarn dev
